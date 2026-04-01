@@ -3,6 +3,9 @@ package com.pao.laboratory06.exercise1;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
+import com.pao.laboratory06.exercise1.AngajatSortNume;
+import com.pao.laboratory06.exercise1.AngajatSortSalariuDesc;
+import com.pao.laboratory06.exercise1.AngajatSortSalariu;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,13 +18,27 @@ public class Main {
             angajati[i] = Angajat.citeste(scanner);
         }
         // cerinte: sorteaza in functie de optiune
-        Comparator<Angajat> comparator = switch (optiune) {
-            case "by_name" -> (Angajat a1, Angajat a2) -> a1.getNume().compareTo(a2.getNume());
-            case "by_salary" -> (Angajat a1, Angajat a2) -> Double.compare(a1.getSalariu(), a2.getSalariu());
-            case "by_salary_desc" -> (Angajat a1, Angajat a2) -> Double.compare(a2.getSalariu(), a1.getSalariu());
-            default -> (a1, a2) -> 0; // nu sortam
-        };
-        Arrays.sort(angajati, comparator);
+//        Comparator<Angajat> comparator = switch (optiune) {
+//            case "by_name" -> Arrays.sort(angajati, AngajatSortNume);
+//            case "by_salary" -> Arrays.sort(angajati, AngajatSortSalariu);
+//            case "by_salary_desc" -> Arrays.sort(angajati, AngajatSortSalariuDesc);
+//            default -> (a1, a2) -> 0; // nu sortam
+//        };
+
+        switch(optiune)
+        {
+            case "by_name":
+                Arrays.sort(angajati, AngajatSortNume);
+                break;
+            case "by_salary":
+                Arrays.sort(angajati, AngajatSortSalariu);
+                break;
+            case "by_salary_desc":
+                Arrays.sort(angajati, AngajatSortSalariuDesc);
+                break;
+        }
+//
+//        Arrays.sort(angajati, comparator);
         for (Angajat angajat : angajati) {
             System.out.println(angajat);
         }
