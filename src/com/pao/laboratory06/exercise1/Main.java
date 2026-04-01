@@ -28,13 +28,13 @@ public class Main {
         switch(optiune)
         {
             case "by_name":
-                Arrays.sort(angajati, AngajatSortNume);
+                Arrays.sort(angajati, new AngajatSortNume());
                 break;
             case "by_salary":
-                Arrays.sort(angajati, AngajatSortSalariu);
+                Arrays.sort(angajati, new AngajatSortSalariu());
                 break;
             case "by_salary_desc":
-                Arrays.sort(angajati, AngajatSortSalariuDesc);
+                Arrays.sort(angajati, new AngajatSortSalariuDesc());
                 break;
         }
 //
