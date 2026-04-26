@@ -8,6 +8,7 @@ public class CIMColaborator extends PersoanaFizica implements IOperatiiCitireScr
         double rezultat = venit_brut * 12 * 0.55;
         if(areBonus())
             rezultat += rezultat * 0.1;
+        return rezultat;
     }
 
     @Override
