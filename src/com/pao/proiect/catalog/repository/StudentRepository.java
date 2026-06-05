@@ -179,6 +179,16 @@ public class StudentRepository implements Repository<Student, Integer> {
         }
     }
 
+    public void deleteByEmail(String email) {
+        String sql = "DELETE FROM studenti WHERE email = ?";
+        try (PreparedStatement ps = getConn().prepareStatement(sql)) {
+            ps.setString(1, email);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Eroare deleteByEmail student: " + e.getMessage(), e);
+        }
+    }
+
     private Student mapRow(ResultSet rs) throws SQLException {
         Specializare spec = new Specializare(
                 rs.getString("spec_nume"),
